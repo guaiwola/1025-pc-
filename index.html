@@ -2,74 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>pc项目演示</title>
+    <title>pc端项目</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <div id="wrap">
-        <header id="header">
-            <div class="headerMain">
-                <!--logo图片-->
-                <h1 class="logo">
-                    <a>
-                        <img src="./imgs/logo.png" alt="logo">
-                    </a>
-                </h1>
-                <!--music-->
-                <div class="music">
-                    <audio src="./imgs/audio.mp3" muted loop></audio>
-                </div>
-                <!--导航区域-->
-                <ul class="nav">
-                    <li>
-                        <a >
-                            <div class="up">
-                                <img src="./imgs/home_gruen.png" alt="home">
-                            </div>
-                            <div class="down">
-                                <img src="./imgs/home.png" alt="home">
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <h3 class="up">Course</h3>
-                            <h3 class="down">Course</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <h3 class="up">Works</h3>
-                            <h3 class="down">Works</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <h3 class="up">About</h3>
-                            <h3 class="down">About</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <h3 class="up">Team</h3>
-                            <h3 class="down">Team</h3>
-                        </a>
-                    </li>
-                </ul>
-                <!--下方箭头-->
-                <div class="arrow"></div>
-            </div>
-        </header>
-        <div id="content">
-            <ul class="contentMain">
+<div id="wrap">
+    <header class="header">
+        <div class="header-main">
+            <h1 class="logo">
+                <img src="./imgs/logo.png" alt="logo">
+            </h1>
+            <img class="music-icon" src="./imgs/musicon.gif" alt="music_icon">
+            <ul class="nav">
                 <li>
-                    <section class="home">
-
-                    </section>
+                    <h3 class="up">
+                        <img src="./imgs/home.png" alt="home">
+                    </h3>
+                    <h3 class="down">
+                        <img src="./imgs/home_gruen.png" alt="home">
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="up">Course</h3>
+                    <h3 class="down">Course</h3>
+                </li>
+                <li>
+                    <h3 class="up">Works</h3>
+                    <h3 class="down">Works</h3>
+                </li>
+                <li>
+                    <h3 class="up">About</h3>
+                    <h3 class="down">About</h3>
+                </li>
+                <li>
+                    <h3 class="up">Team</h3>
+                    <h3 class="down">Team</h3>
                 </li>
             </ul>
+            <div class="arrow"></div>
         </div>
+    </header>
+    <div class="content">
+        <ul class="content-main">
+            <li><section>home</section></li>
+            <li><section>course</section></li>
+            <li><section>works</section></li>
+            <li><section>about</section></li>
+            <li><section>team</section></li>
+        </ul>
     </div>
-    <script type="text/javascript" src="./js/index.js"></script>
+</div>
+<script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
