@@ -93,25 +93,34 @@ window.addEventListener('DOMContentLoaded', function () {
             - arrowHalfWidth + 'px';
         contentUlNode.style.top = - nowIndex * contentHeight + 'px';
     }
-
+    //第一屏js代码
     firstViewHandle();
     function firstViewHandle() {
         var homeCarouselNodes = document.querySelectorAll('.home-carousel li');
         var homePointNodes = document.querySelectorAll('.home-point li');
+        var homeNode = document.querySelector('.home');
 
         var lastIndex = 0;
         var nowIndex = 0;
+        var lastTime = 0;
+        var timer = null;
 
         for (var i = 0; i < homePointNodes.length; i++) {
             homePointNodes[i].index = i;
             homePointNodes[i].onclick = function () {
-                //同步nowIndex的值
+
+                var nowTime = Date.now();
+                console.log(nowTime);
+                if (nowTime - lastTime <= 2000) return;
+                lastTime = nowTime;
+
+
                 nowIndex = this.index;
 
                 if (nowIndex === lastIndex) return;
 
                 if (nowIndex > lastIndex) {
-                    //点击是右边  右边加上right-show  左边加上left-hide
+                    //点击是右边
                     homeCarouselNodes[nowIndex].className = 'common-title right-show';
                     homeCarouselNodes[lastIndex].className = 'common-title left-hide';
                 } else {
@@ -128,7 +137,28 @@ window.addEventListener('DOMContentLoaded', function () {
 
             }
         }
-    }
+        homeNode.onmouseenter = function () {
+            clearInterval(timer);
+        }
 
+        homeNode.onmouseleave = autoPlay;
+
+        autoPlay();
+        function autoPlay() {
+            timer = setInterval(function () {
+                nowIndex++;
+
+                if (nowIndex >= 4) nowIndex = 0;
+
+                homeCarouselNodes[nowIndex].className = 'common-title right-show';
+                homeCarouselNodes[lastIndex].className = 'common-title left-hide';
+
+                homePointNodes[lastIndex].className = '';
+                homePointNodes[nowIndex].className = 'active';
+
+                lastIndex = nowIndex;
+            }, 2500)
+        }
+    }
 
 })
