@@ -111,7 +111,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 var nowTime = Date.now();
                 console.log(nowTime);
-                if (nowTime - lastTime <= 2000) return;
+                if (nowTime - lastTime <= 2100)
+                    return;
                 lastTime = nowTime;
 
 
@@ -137,28 +138,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
             }
         }
+        //    鼠标移除事件
         homeNode.onmouseenter = function () {
             clearInterval(timer);
         }
-
         homeNode.onmouseleave = autoPlay;
 
-        autoPlay();
-        function autoPlay() {
-            timer = setInterval(function () {
-                nowIndex++;
 
-                if (nowIndex >= 4) nowIndex = 0;
-
-                homeCarouselNodes[nowIndex].className = 'common-title right-show';
-                homeCarouselNodes[lastIndex].className = 'common-title left-hide';
-
-                homePointNodes[lastIndex].className = '';
-                homePointNodes[nowIndex].className = 'active';
-
-                lastIndex = nowIndex;
-            }, 2500)
-        }
     }
 
 })
